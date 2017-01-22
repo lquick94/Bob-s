@@ -1,74 +1,54 @@
-
 .wrap {
-	max-width: 1500px;
+	width: 1500px;
 	text-align: center;
-	overflow: auto;
-	position: relative;
-	
+	overflow: no-repeat;
 }
 
-nav ul {
-	list-style-type: none;
-	background-image: url("pan.png");
-	background-size: 100% 100%;
-	background-position: center center;
-	background-repeat: no-repeat;
-	border-radius: 20px;
+#nav li a:hover {
+    color: #A30214;
 }
 
-ul {
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    display: inline-block;
+#nav {
+	font-family: Oswald;
+	font-size: 40px;
+  height:40px;
+	padding: 60px;
+  margin:auto;
+	width:1500px;
 }
 
-.nav {
-    background: -moz-linear-gradient;
-    background: -webkit-gradient;
-    width:1500px;
-}
 
-.nav li a, .nav li {
-  text-align: center;
-  display: inline-block;
-}
-
-.nav li {
+#nav ul {
+  margin:auto;
   list-style: none;
 }
 
-.nav li a {
-	font-family: cursive;
-	font-variant: small-caps;
-  padding: 1em 2em;
-  text-decoration: none;
-  color: #5FFB17;
+#nav li {
+  float: left;
 }
 
-.nav li a:hover {
-    background: #D4D4D4;
-}
+#nav a {
+  padding:14px 100px 14px 100px;
+  text-align:center;
+  display:block; 
+	color: white;
+	text-decoration: none;	
+}    
 
-.left{
-	display: inline;
-	padding-right: 200px;
-	line-height: 100px;
-}
-
-.right {
-	padding-left: 200px;
-	display: inline;
-	line-height: 100px;
-}
-
-nav {
-	padding-bottom: 20px;
-  text-align: center;
+    
+#nav ul li.logo {
+  background: url("inbetween.png");
+  background-repeat:no-repeat;
+  height:140px;
+  display:block;
+  width:20px;
 }
 
 body {
-	background: #D4D4D4;
+	background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('background.jpg');
+	background-size: cover;
 	width: 1500px;
+	height: 100%;
 	margin: 0 auto;
 }
 
@@ -76,11 +56,15 @@ body {
 	clear: right;
 }
 
+.hours {
+	margin-top: 30px;
+}
+
 .login, .hours {
 		font-family: cursive;
 		font-size: 10px;
 		float: right;
-		display: inline-block;
+		display: inline;
     width: 300px;
     min-height: 50px;
     margin-bottom: 10px;
@@ -90,15 +74,7 @@ body {
 		border-radius: 10px;
 }
 
-.newbox {
-		float: left;
-		position: relative;
-    width: 30px;
-    min-height: 50px;
-    margin-bottom: 5px;
-    text-align: left;
-    background-color: #f2f2f2;
-}
+
 
 h2{
 	text-align: left;
@@ -128,6 +104,8 @@ h2{
   border: 5px solid black;
   border-radius: 15px;
   box-shadow: -3px 3px 3px 3px #999;
+	float: left;
+	margin-left: 140px;
 }
 
 .button:hover {
@@ -140,8 +118,19 @@ h2{
   transform: translateY(4px);
 }
 
-button span {
-		display: block;	
+.register {
+	width: 900px;
+	font-family: cursive;
+	font-size: 10px;
+	float: left;
+	display: inline;
+  min-height: 50px;
+  margin-bottom: 10px;
+  text-align: left;
+  background-color: white;
+	border-style: outset;
+	border-radius: 10px;
+	margin-left: 140px;
 }
 
 @font-face {
