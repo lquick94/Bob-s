@@ -1,4 +1,8 @@
 <?php
+	function logged_in() {
+		return (isset($_SESSION['user_id'])) ? true : false;
+	}
+	
 	function user_exists ($username) {
 		$username = sanitize($username);
 		$query = mysql_query("SELECT count('User_Id') from users where username = '$username'");
@@ -27,6 +31,13 @@
 			return 1;
 		}
 		return 0;	
+	}
+	
+	function firstName ($username)
+	{
+		$firstName = sanitize($username);
+		$result = mysql_query("select first_name from users where username = '$username'");
+		return mysql_fetch_array($result);
 	}
 	
 ?>

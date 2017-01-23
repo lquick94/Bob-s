@@ -4,9 +4,11 @@
 <?php 
 	include 'init.php';
 	include 'overallHeader.php';
-	include 'hours.php';
-	include 'login.php';
+		include 'aside.php';
 	include 'orderOnline.php';
+
+	
+
 ?>
 
 </body>

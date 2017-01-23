@@ -24,7 +24,7 @@
 #nav {
 	font-family: Oswald;
 	font-size: 40px;
-  height:40px;
+  height:30px;
 	padding: 60px;
   margin:auto;
 	width:1500px;
@@ -41,7 +41,7 @@
 }
 
 #nav a {
-  padding:5px 100px 14px 100px;
+  padding:0px 100px 0px 100px;
   text-align:center;
   display:block; 
 	color: white;
@@ -52,7 +52,7 @@
 #nav ul li.logo {
   background: url("inbetween.png");
   background-repeat:no-repeat;
-  height:140px;
+  height:80px;
   display:block;
   width:20px;
 }
@@ -74,24 +74,22 @@ body {
 }
 
 .login, .hours {
-		font-family: cursive;
-		font-size: 10px;
+		font-family: Oswald;
+		font-size: 20px;
 		float: right;
 		display: inline;
-    width: 300px;
+    width: 400px;
     min-height: 50px;
     margin-bottom: 10px;
-    text-align: left;
+    text-align: center;
     background-color: white;
 		border-style: outset;
 		border-radius: 10px;
 		opacity: 0.78;
 }
 
-
-
-h2{
-	text-align: left;
+.login h2{
+	text-align: center;
 	white-space: pre-line;
 }
 
@@ -134,18 +132,61 @@ h2{
 }
 
 .register {
-	width: 900px;
-	font-family: cursive;
-	font-size: 10px;
+	width: 50%;
+	font-family: Oswald;
+	font-size: 20px;
 	float: left;
-	display: inline;
   min-height: 50px;
   margin-bottom: 10px;
-  text-align: left;
+  text-align: center;
   background-color: white;
 	border-style: outset;
 	border-radius: 10px;
-	margin-left: 140px;
+	float: left;
+	margin-left: 120px;
+	opacity: 0.8;
+}
+
+.register h2 {
+	text-align: center;
+}
+
+.form {
+  position: relative;
+  z-index: 1;
+  max-width: 70%;
+  margin: 0 auto 10px;
+  padding: 45px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 0 100px 0 #FFFFFF, 0 5px 5px 0 rgba(0, 0, 0);
+}
+
+.form input {
+  font-family: sans-serif;
+  outline: 0;
+  background: #CDD0D1;
+  width: 100%;
+	border: 0;
+  border-radius: 10px;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 18px;
+}
+
+.form input[type=submit] {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  background: #4CAF50;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
 }
 
 @font-face {

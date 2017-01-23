@@ -1,12 +1,32 @@
-		<div class = "login">
-			<h2>Log In</h2>
-			<p></p>
-			<form action = "loggedin.php" method= "post">
-				<ul id = "login">
-					<li>Username:<br><input type = "text" name = "username"></li>
-					<li>Password:<br><input type = "password" name = "password"></li>
-					<li><input type = "submit" value = "Log in"></li>
-					<li><br><h2>Don't have an account with us? Register Here!<br><a href="register.php">Register</a></li>
-				</ul>
-			</form>
-		</div>
+
+<?php
+	include 'overallHeader.php';
+	include 'init.php';
+		if (!empty($_POST)) {
+			$username = $_POST['username'];
+			$password = $_POST['password'];
+			if (empty($username) || empty($password)) {
+					$errors[] = 'Please enter a user name and password.';
+			} else if (!user_exists($username)) {
+					$errors[] = 'Username does not exist. Register with us today!';
+			} else if (user_active($username) != 1) {
+					$errors[] = 'You have not activated your account';
+			} else {
+					$login = login($username, $password);
+					$user_id = user_id_from_username($username);
+					if ($login == 0) {
+						$errors[] = "That username/password combination is incorrect";
+					} else {
+						$_SESSION['user_id'] = true;
+						header('Location: index.php');
+						exit();
+					}
+			}
+?>
+<div class = "register">
+<?php
+		print_r($errors);
+
+	}
+?>
+</div>
