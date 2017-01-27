@@ -1,10 +1,11 @@
 
 <?php
 	include 'hours.php';
+	include 'orderOnline.php';
 	if (logged_in() === true) {
 		?><div class = 'login'>
 		<?php
-		echo 'Logged in';?>
+		include 'loggedin.php';?>
 		</div><?php
 	}
 	

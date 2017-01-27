@@ -4,8 +4,7 @@
 <?php 
 	include 'init.php';
 	include 'overallHeader.php';
-		include 'aside.php';
-	include 'orderOnline.php';
+	include 'aside.php';
 
 	
 

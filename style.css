@@ -60,6 +60,7 @@
 body {
 	background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('background.jpg');
 	background-size: cover;
+	background-attachment:fixed;
 	width: 1500px;
 	height: 100%;
 	margin: 0 auto;
@@ -85,7 +86,7 @@ body {
     background-color: white;
 		border-style: outset;
 		border-radius: 10px;
-		opacity: 0.78;
+		opacity: 0.85;
 }
 
 .login h2{
@@ -118,7 +119,7 @@ body {
   box-shadow: -3px 3px 3px 3px #999;
 	float: left;
 	margin-left: 140px;
-	opacity: 0.78;
+	opacity: 0.85;
 }
 
 .button:hover {
@@ -144,13 +145,16 @@ body {
 	border-radius: 10px;
 	float: left;
 	margin-left: 120px;
-	opacity: 0.8;
+	opacity: 0.85;
 }
 
 .register h2 {
 	text-align: center;
 }
 
+.register ul{
+	text-decoration: none;
+}
 .form {
   position: relative;
   z-index: 1;

@@ -1,6 +1,5 @@
 
 <?php
-	include 'overallHeader.php';
 	include 'init.php';
 		if (!empty($_POST)) {
 			$username = $_POST['username'];
@@ -17,16 +16,23 @@
 					if ($login == 0) {
 						$errors[] = "That username/password combination is incorrect";
 					} else {
-						$_SESSION['user_id'] = true;
+						$_SESSION['user_id'] = $user_id;
 						header('Location: index.php');
 						exit();
 					}
 			}
+	}
+	else {
+		$errors[] = "No data recieved.";
+	}
+	
+		include 'overallHeader.php';
+		if (empty($errors) == false) {
+			
 ?>
 <div class = "register">
-<?php
-		print_r($errors);
+<h2>We tried to log you in but...</h2>
 
-	}
-?>
+<?php	echo output_errors($errors);}?>
 </div>
+
