@@ -1,4 +1,8 @@
 <?php
+	function user_count() {
+		return mysql_result(mysql_query("select count('user_id') from users where active = 1"),0);
+	}
+
 	function user_data($user_id) {
 		$data = array();
 		$user_id = (int)$user_id;
@@ -20,6 +24,7 @@
 		return (isset($_SESSION['user_id'])) ? true : false;
 	}
 	
+	// Checks if a user exists in the database.
 	function user_exists ($username) {
 		$username = sanitize($username);
 		$query = mysql_query("SELECT count('User_Id') from users where username = '$username'");
@@ -50,11 +55,21 @@
 		return 0;	
 	}
 	
+	// Returns the users first name
 	function firstName ($username)
 	{
 		$firstName = sanitize($username);
 		$result = mysql_query("select first_name from users where username = '$username'");
 		return mysql_fetch_array($result);
 	}
+	
+	// Checks if a given email already exists in the database.
+	function email_exists ($email) {
+		$email = sanitize($email);
+		$query = mysql_query("SELECT count('User_Id') from users where email = '$email'");
+		return (mysql_result($query, 0) == 1) ? true : false;
+	}
+	
+
 	
 ?>

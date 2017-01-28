@@ -1,8 +1,7 @@
 <div class = "login">
 	<h2>Log In</h2>
-	<p></p>
 	<div class = 'form'>
-		<form action = "login.php" method= "post">
+		<form action = "login.php" method= "POST">
 		<ul>
 			<li><input type = "text" name = "username" placeholder = "Username"></li>
 			<li><input type = "password" name = "password" placeholder = "Password"></li>
@@ -12,3 +11,5 @@
 	</form>
 	</div>
 </div>
+
+
