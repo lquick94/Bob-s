@@ -1,4 +1,11 @@
 <?php
+	function change_password($user_id, $password) {
+		$user_id = (int)$user_id;
+		$password = md5($password);
+		
+		mysql_query("update users set password = '$password' where user_id = $user_id");
+	}
+
 	function register_user($register_data) {
 		array_walk($register_data, 'array_sanitize');
 		$register_data['password'] = md5($register_data['password']);
@@ -14,18 +21,15 @@
 	function user_data($user_id) {
 		$data = array();
 		$user_id = (int)$user_id;
-		
 		$func_num_args = func_num_args();
 		$func_get_args = func_get_args();
 		
 		if ($func_num_args > 1) {
 			unset($func_get_args[0]);
-			
 			$fields = '`'.implode('`, `', $func_get_args). '`';
 			$data= mysql_fetch_assoc(mysql_query("select $fields from users where User_Id = '$user_id'"));
 			return $data;
 		}
-		
 	}
 
 	function logged_in() {
@@ -64,8 +68,7 @@
 	}
 	
 	// Returns the users first name
-	function firstName ($username)
-	{
+	function firstName ($username) {
 		$firstName = sanitize($username);
 		$result = mysql_query("select first_name from users where username = '$username'");
 		return mysql_fetch_array($result);

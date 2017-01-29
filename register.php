@@ -1,5 +1,6 @@
 <?php 
 	include 'init.php';
+	logged_in_redirect();
 	include 'overallHeader.php';
 	include 'login_wid.php';
 ?>
