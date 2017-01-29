@@ -1,4 +1,12 @@
 <?php
+	function register_user($register_data) {
+		array_walk($register_data, 'array_sanitize');
+		$register_data['password'] = md5($register_data['password']);
+		$fields = '`'. implode('`, `', array_keys($register_data)).'`';
+		$data = '\'' . implode('\', \'', $register_data) . '\'';
+		mysql_query("insert into users ($fields) values ($data)");
+	}
+	
 	function user_count() {
 		return mysql_result(mysql_query("select count('user_id') from users where active = 1"),0);
 	}

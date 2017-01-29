@@ -28,7 +28,7 @@
 			
 			// Checks for password length.
 			if (strlen($_POST['password']) <= 6) {
-				$errors[] = '*YOUR PASSWORD MUST BE AT LEAST 6 CHARACTERS';
+				$errors[] = '*YOUR PASSWORD MUST BE AT LEAST 7 CHARACTERS';
 			}
 			
 			// Checks if passwords match.
@@ -37,15 +37,14 @@
 			}
 			
 			// Checks if EMAIL is written corretly.
-			if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL == false)) {
-				$errors = 'A valid email address is required';
+			if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) === false) {
+				$errors[] = '*A VALID EMAIL ADDRESS IS REQUIRED';
 			}
 			
 			// Checks if email address already exists.
-			if (email_exists($_POST['email']) == true) {
-				$errors = '*SORRY THAT EMAIL ADDRESS IS ALREADY REGISTERED';
+			if (email_exists($_POST['email']) == 1) {
+				$errors[] = '*SORRY THAT EMAIL ADDRESS IS ALREADY REGISTERED';
 			}
-		
 		}
 	}	
 ?>
@@ -53,17 +52,32 @@
 
 	<h2>Register</h2>
 	<?php
-		if(empty($_POST) == true && empty($errors) == true) {
-			//regiest user;
+		if (isset($_GET['success']) && empty ($_GET['success'])) {
+			echo 'You\'ve been registered successfully!';
 		}
 		else {
-			echo output_errors($errors);
-		}
+		
+			if(empty($_POST) == false && empty($errors) == true) {
+				$register_data = array(
+						'username' 		=> $_POST['username'],
+						'password' 		=> $_POST['password'],
+						'first_name' 	=> $_POST['first_name'],
+						'last_name' 	=> $_POST['last_name'],
+						'email' 			=> $_POST['email'],
+				);
+				
+				register_user($register_data);
+				header('Location: register.php?success');
+				exit();
+			}
+			else if (empty($errors) == false) {
+				echo output_errors($errors);
+			}
 	?>
 	<div class = 'form'>
 		<form action="" method="post">
-			<input type="text" name = "first_Name" placeholder="First Name" />
-			<input type="text" name = "last_Name" placeholder="Last Name"/>
+			<input type="text" name = "first_name" placeholder="First Name" />
+			<input type="text" name = "last_name" placeholder="Last Name"/>
 			<input type="text" name = "email" placeholder="E-mail Address"/>
 			<input type="text" name = "username" placeholder="Username"/>
 			<input type="password" name = "password" placeholder="Password"/>
@@ -71,4 +85,5 @@
 			<input type="submit" value="Register" oninvalid="alert('You must fill out the form!');">
 		</form>
 	</div>
+	<?php } ?>
 </div>
