@@ -1,4 +1,8 @@
 <?php
+	function send_email($to, $subject, $body) {
+		mail($to, $subject, $body, 'From: Hello@BobsBurgers.com');
+	}
+
 	function logged_in_redirect() {
 		if (logged_in() == true) {
 			header('Location: index.php');

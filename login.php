@@ -27,6 +27,7 @@
 	}
 	
 		include 'overallHeader.php';
+		include 'login_wid.php';
 		if (empty($errors) == false) {
 			
 ?>
