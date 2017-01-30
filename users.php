@@ -15,7 +15,6 @@
 	function change_password($user_id, $password) {
 		$user_id = (int)$user_id;
 		$password = md5($password);
-		
 		mysql_query("update users set password = '$password' where user_id = $user_id");
 	}
 
@@ -26,6 +25,17 @@
 		$data = '\'' . implode('\', \'', $register_data) . '\'';
 		mysql_query("insert into users ($fields) values ($data)");
 		send_email($register_data['email'], 'Activate your account', "Hello ".$register_data['first_name'] .",\n\nYou need to activate your account, so use the link below:\n\nhttp://74.192.1.233:721/activate.php?email=".$register_data['email']."&email_code=".$register_data['email_code']."\n\n-Bob's Burger");
+	}
+	
+	function update_user($update_data) {
+		global $session_user_id;
+		$update = array();
+		array_walk($update_data, 'array_sanitize');
+		foreach ($update_data as $fields=>$data) {
+			$update[] = '`' . $fields . '` = \'' . $data . '\'';
+		}
+		
+		mysql_query("update users set " . implode(', ', $update). " where User_id = $session_user_id"); 
 	}
 	
 	function user_count() {

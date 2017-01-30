@@ -4,6 +4,10 @@
 		<li>
 			<a href = 'changepassword.php'>Change Password</a>
 		</li>
+		<li>
+			<a href = 'settings.php'>Settings</a>
+		</li>
+		
 	</ul>
 	<div id = "logout">
 		<br><a href="logout.php">

@@ -7,7 +7,7 @@
 <div class = "register">
 <?php	
 	if (empty($_POST) == false) {
-		$require_fields = array('first_Name', 'last_Name', 'email', 'username', 'password', 'passwordAgain');
+		$require_fields = array('first_name', 'last_name', 'email', 'username', 'password', 'passwordAgain');
 		foreach($_POST as $key=>$value) {
 			if(empty($value) && in_array($key, $require_fields) == true) {
 				$errors[] = '*PLEASE FILL OUT ALL INPUT FIELDS';
@@ -52,30 +52,30 @@
 
 
 	<h2>Register</h2>
-	<?php
-		if (isset($_GET['success']) && empty ($_GET['success'])) {
-			echo 'You\'ve been registered successfully! Please check your email to activate your account.';
+<?php
+	if (isset($_GET['success']) && empty ($_GET['success'])) {
+		echo 'You\'ve been registered successfully! Please check your email to activate your account.';
+	}
+	
+	else {
+		if(empty($_POST) == false && empty($errors) == true) {
+			$register_data = array(
+				'username' 		=> $_POST['username'],
+				'password' 		=> $_POST['password'],
+				'first_name' 	=> $_POST['first_name'],
+				'last_name' 	=> $_POST['last_name'],
+				'email' 			=> $_POST['email'],
+				'email_code' 	=> md5($_POST['username'] + microtime()),
+			);
+			
+			register_user($register_data);
+			header('Location: register.php?success');
+			exit();
 		}
-		else {
-		
-			if(empty($_POST) == false && empty($errors) == true) {
-				$register_data = array(
-						'username' 		=> $_POST['username'],
-						'password' 		=> $_POST['password'],
-						'first_name' 	=> $_POST['first_name'],
-						'last_name' 	=> $_POST['last_name'],
-						'email' 			=> $_POST['email'],
-						'email_code' 	=> md5($_POST['username'] + microtime()),
-				);
-				
-				register_user($register_data);
-				header('Location: register.php?success');
-				exit();
-			}
-			else if (empty($errors) == false) {
-				echo output_errors($errors);
-			}
-	?>
+		else if (empty($errors) == false) {
+			echo output_errors($errors);
+		}
+?>
 	<div class = 'form'>
 		<form action="" method="post">
 			<input type="text" name = "first_name" placeholder="First Name" />
@@ -84,7 +84,7 @@
 			<input type="text" name = "username" placeholder="Username"/>
 			<input type="password" name = "password" placeholder="Password"/>
 			<input type = "password" name = "passwordAgain" placeholder="Repeat Password"/>
-			<input type="submit" value="Register" oninvalid="alert('You must fill out the form!');">
+			<input type="submit" value="Register">
 		</form>
 	</div>
 	<?php } ?>
