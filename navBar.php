@@ -1,11 +1,11 @@
+<div id = menu>
 <div id="nav">
-	<ul>
-		<li><a href="index.php" class="item1">Home</a></li>
-		<li class="logo"></li>
-		<li><a href="#section2" class="item2">Menu</a></li>
-		<li class="logo"></li>
-		<li><a href="#section4" class="item4">Locate Us</a></li>
-		<li class="logo"></li>
-		<li><a href="#section5" class="item5">Contact Us</a></li>
-	</ul>
-</div>
+<ul>
+			<li><a href='index.php'><i class='fa fa-home'></i><span>Home</span></a></li>
+      <li><a href='#'><i class='fa fa-cutlery'></i><span>Menu</span></a></li>
+      <li><a href='#'><i class='fa fa-user'></i><span>About</span></a></li>
+      <li><a href='#'><i class='fa fa-book'></i><span>Contact</span></a></li>
+      <li><a href='#'><i class='fa fa-map'></i><span>Locate</span></a></li>
+    </ul>
+  </div>
+	</div>

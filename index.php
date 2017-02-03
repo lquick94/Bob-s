@@ -4,9 +4,11 @@
 <?php 
 	include 'init.php';
 	include 'overallHeader.php';
+	?>
+	<div class = "row"><?php
 	include 'aside.php';
 ?>
-
+</div>
 </body>
 </div>
 </html>
