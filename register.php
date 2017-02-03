@@ -13,7 +13,6 @@
 				$errors[] = '*PLEASE FILL OUT ALL INPUT FIELDS';
 				break 1;
 			}
-			
 		}
 		
 		if (empty($errors) == true) {
@@ -72,10 +71,14 @@
 			header('Location: register.php?success');
 			exit();
 		}
-		else if (empty($errors) == false) {
-			echo output_errors($errors);
-		}
-?>
+		?>
+		<div class = errors>
+		<?php
+		if (empty($errors) == false) {
+			 echo output_errors($errors);
+		}?>
+		</div>
+
 	<div class = 'form'>
 		<form action="" method="post">
 			<input type="text" name = "first_name" placeholder="First Name" />

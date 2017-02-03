@@ -5,9 +5,6 @@
 	include 'init.php';
 	include 'overallHeader.php';
 	include 'aside.php';
-
-	
-
 ?>
 
 </body>

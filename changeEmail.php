@@ -8,12 +8,20 @@
 <?php
 	
 	if(empty($_POST) == false) {
-		$require_fields = array('first_name', 'last_name', 'email');
+		$require_fields = array('password', 'new_email', 'email');
 		foreach($_POST as $key=>$value) {
 			if(empty($value) && in_array($key, $require_fields) == true) {
 				$errors[] = '*PLEASE FILL OUT ALL INPUT FIELDS';
 				break 1;
 			}
+		}
+		
+		if (md5($_POST['password']) != $user_data['password'] && strlen($_POST['password']) > 1) {
+			$errors[] = 'Password you entered is incorrect';
+		}
+
+		if ($_POST['email'] != $_POST['new_email']) {
+			$errors[] = 'THE EMAILS YOU HAVE ENTERED DO NOT MATCH';
 		}
 		
 		if(empty($errors) == true) {
@@ -27,7 +35,7 @@
 	}
 ?>
 
-<h1>Settings</h1>
+<h1>Change Email</h1>
 
 <?php
 	if (isset($_GET['success']) && empty ($_GET['success'])) {
@@ -36,26 +44,24 @@
 	
 	else {
 		if(empty($_POST) == false && empty($errors) == true) {
-		$update_data = array(
-				'first_name' => $_POST['first_name'],
-				'last_name' => $_POST['last_name'],
-				'email' => $_POST['email'],
-			);
-			header('Location: settings.php?success');
-			update_user($update_data);			
+			change_email($user_data['User_id'], $_POST['new_email']);
+			header('Location: changeEmail.php?success');
+						
 			exit();
 		}
-
-		else if (empty($errors) == false) {
-			echo output_errors($errors);
-		}
 ?>
+		<div class = errors>
+		<?php
+		if (empty($errors) == false) {
+			 echo output_errors($errors);
+		}?>
+		</div>
  
 	<div class = "form">
 	<form action = "" method = "post">
-		<input type = 'text' name="first_name" placeholder="First Name" value=<?php echo $user_data['first_name'];?>>
-		<input type = 'text' name="last_name" placeholder="Last Name" value=<?php echo $user_data['last_name'];?>>
-		<input type = 'text' name="email" placeholder="EMail" value=<?php echo $user_data['email'];?>>
+		<input type = 'password' name="password" placeholder="Verify Password">
+		<input type = 'text' name="new_email" placeholder="New EMail">
+		<input type = 'text' name="email" placeholder="Verify New EMail">
 		<input type ="submit" value="Update"/>
 	</form>
 	</div>

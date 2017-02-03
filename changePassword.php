@@ -13,14 +13,14 @@
 		
 		if (md5($_POST['currentPassword']) == $user_data['password']) {
 			if (trim($_POST['password']) != trim($_POST['passwordAgain'])){
-				$errors[] = 'Your new passwords do not match';
+				$errors[] = 'YOUR NEW PASSWORDS DO NOT MATCH';
 			}
 			else if (strlen($_POST['password']) < 7 ) {
-				$errors[] = 'Your password must be at least 7 characters';
+				$errors[] = 'YOUR PASSWORD MYST BE AT LEAST 7 CHARACTERS';
 			}
 		}
 		else {
-			$errors[] = 'The current password you\'ve entered is incorrect';
+			$errors[] = 'THE CURRENT PASSWORD YOU\'VE ENTERED IS INCORRECT';
 		}
 	}
 	
@@ -36,14 +36,17 @@
 		else {
 		
 			if(empty($_POST) == false && empty($errors) == true) {
-				change_password($session_user_id, $_POST['password']);
+				change_password($user_data['User_id'], $_POST['password']);
 				header('Location: changepassword.php?success');
 				exit();
 			}
-			else if (empty($errors) == false) {
-				echo output_errors($errors);
-			}
 	?>
+		<div class = errors>
+		<?php
+		if (empty($errors) == false) {
+			 echo output_errors($errors);
+		}?>
+		</div>
 <div class = 'form'>
 		<form action="" method="post">
 			<input type="password" name = "currentPassword" placeholder="Current Password" />

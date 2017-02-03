@@ -5,7 +5,7 @@
 			<a href = 'changepassword.php'>Change Password</a>
 		</li>
 		<li>
-			<a href = 'settings.php'>Settings</a>
+			<a href = 'changeEmail.php'>Change Email</a>
 		</li>
 		
 	</ul>

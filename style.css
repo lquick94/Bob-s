@@ -76,6 +76,7 @@ body {
 
 .hours {
 	margin-top: 30px;
+	clear: right;
 }
 
 .login, .hours {
@@ -95,13 +96,18 @@ body {
 
 .login h2{
 	text-align: center;
-	white-space: pre-line;
 }
 
 .login ul{
 	list-style-type: none;
 	text-decoration: none;
 	text-align: left;
+}
+
+.errors {
+	color: red;
+	font-size: 15px;
+	font-family: "Courier New";
 }
 
 .button {
@@ -163,7 +169,8 @@ body {
   position: relative;
   z-index: 1;
   max-width: 85%;
-  padding: 0 10 20 10px;
+  margin: 0 auto 10px;
+  padding: 20 10 20 10px;
   border-radius: 10px;
   box-shadow: 0 0 100px 0 #FFFFFF, 0 5px 5px 0 rgba(0, 0, 0);
 }
@@ -182,6 +189,42 @@ body {
 }
 
 .form input[type=submit] {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  background: #4CAF50;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+
+.loginform {
+  position: relative;
+  z-index: 1;
+  max-width: 85%;
+  padding: 5px;
+  border-radius: 10px;
+  box-shadow: 0 0 100px 0 #FFFFFF, 0 5px 5px 0 rgba(0, 0, 0);
+}
+
+.loginform input {
+  font-family: sans-serif;
+  outline: 0;
+  background: #CDD0D1;
+  width: 100%;
+	border: 0;
+  border-radius: 10px;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 18px;
+}
+
+.loginform input[type=submit] {
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   background: #4CAF50;

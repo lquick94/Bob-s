@@ -1,9 +1,11 @@
-<div id = menu>
+<div id="nav">
 	<ul>
-		<a href = "index.php">Home</a>
-		<a href = "onlineOrder.php">Order Online</a>
-		<a href = "location.php">Find Us</a>
-		<a href = "contact.php">Contact Us</a>
-		<a href = "login.php">Login</a>
+		<li><a href="index.php" class="item1">Home</a></li>
+		<li class="logo"></li>
+		<li><a href="#section2" class="item2">Menu</a></li>
+		<li class="logo"></li>
+		<li><a href="#section4" class="item4">Locate Us</a></li>
+		<li class="logo"></li>
+		<li><a href="#section5" class="item5">Contact Us</a></li>
 	</ul>
 </div>
