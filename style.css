@@ -17,7 +17,7 @@ ul {
 }
 
 #logo img{
-	width: 40%;
+	width: 35%;
 	height: auto;
 	display:block;
 	margin-left: auto;
@@ -98,7 +98,7 @@ body {
 	font-size: 20px;
 	float: right;
 	display: inline;
-	width: 20%;
+	width:400px;
 	min-height: 50px;
 	margin: 5 75 5 0px;
 	text-align: center;
@@ -108,6 +108,9 @@ body {
 	opacity: 0.85;
 }
 
+.login ul {
+	text-align: left;
+}
 .login h2{
 	text-align: center;
 }
@@ -140,7 +143,7 @@ body {
   border-radius: 15px;
   box-shadow: -3px 3px 3px 3px #999;
 	float: left;
-	margin: 5 0 5 75px;
+	margin: 5 0 5 100px;
 	opacity: 0.85;
 }
 

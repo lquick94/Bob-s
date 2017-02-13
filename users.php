@@ -1,4 +1,23 @@
 <?php
+	// Sends email to recover forgotten user information.
+	function recover($mode, $email) {
+		$mode = sanitize($mode);
+		$email = sanitize($email);
+		$user_data = user_data(user_id_from_email($email), 'first_name', 'username');
+		
+		if ($mode == 'username') {
+			send_email($email, 'Your Username', "Hello " . $user_data['first_name'] . ", \n\nYour username is:". $user_data['username'] ." \n\n-Bob's Burgers, Pasta, and Pizza");
+		}
+		else if ($mode == 'password') {
+			//
+		}
+	}
+	
+	// Return the user_id from a given email.
+	function user_id_from_email($email) {
+		$email = sanitize($email);
+		return mysqli_fetch_array(mysqli_query(connection(), "select User_Id from users where email = '$email'"));
+	}
 	
 	// Returns a connection to the database.
 	function connection() {

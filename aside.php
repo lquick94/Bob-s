@@ -1,4 +1,3 @@
-
 <?php
 	include 'hours.php';
 	include 'orderOnline.php';

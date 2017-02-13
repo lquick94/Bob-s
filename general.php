@@ -2,7 +2,7 @@
 	
 	// fucntion that sends out emails
 	function send_email($to, $subject, $body) {
-		mail($to, $subject, $body, 'From: Hello@BobsBurgers.com');
+		mail($to, $subject, $body, '');
 	}
 
 	// Redirects users to index page when used if they are already logged in.
@@ -23,11 +23,11 @@
 	
 	// Escapes special characters in a string
 	function sanitize($data) {
-		return mysqli_real_escape_string(connection(), $data);
+		return htmlentities(strip_tags(mysqli_real_escape_string(connection(), $data)));
 	}
 	
 	function array_sanitize(&$item) {
-		$item = mysqli_real_escape_string(connection(), $item);
+		$item = htmlentities(strip_tags(mysqli_real_escape_string(connection(), $item)));
 	}
 	
 	// Puts an array into a list form.

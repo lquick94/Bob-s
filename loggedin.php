@@ -7,6 +7,12 @@
 		<li>
 			<a href = 'changeEmail.php'>Change Email</a>
 		</li>
+		<li>
+			<a href = 'changeEmail.php'>Order History</a>
+		</li>
+		<li>
+			<a href = 'changeEmail.php'>Cart</a>
+		</li>
 		
 	</ul>
 	<div id = "logout">
