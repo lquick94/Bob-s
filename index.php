@@ -5,7 +5,8 @@
 	include 'init.php';
 	include 'overallHeader.php';
 	?>
-	<div class = "row"><?php
+	<div class = "row">
+	<?php
 	include 'aside.php';
 ?>
 </div>

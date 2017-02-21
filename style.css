@@ -94,6 +94,7 @@ body {
 }
 
 .login, .hours {
+	position: static;
 	font-family: Oswald;
 	font-size: 20px;
 	float: right;
@@ -276,3 +277,28 @@ body {
   min-zoom: 0.5;
   max-zoom: 0.9;
 }
+
+.slideCon {
+	margin-top: 300px;
+}
+
+#slider_container{
+  margin-top: 80px;
+	margin-left: auto;
+	margin-right: auto;
+  max-width:600px;
+	max-height: 100%;
+  background:black;
+ }
+ 
+#slides{
+  position:relative;
+  width:100%;
+  padding-right:40px;
+  padding-left:40px;
+  box-sizing:border-box;
+}
+#slides img{
+  position:relative;
+}
+

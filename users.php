@@ -1,15 +1,26 @@
 <?php
+
+	
+	// Returns a connection to the database.
+	function connection() {
+		$con = mysqli_connect('localhost', 'root', 'root','users') or die('error');
+		return $con;
+	}
+	
 	// Sends email to recover forgotten user information.
 	function recover($mode, $email) {
 		$mode = sanitize($mode);
 		$email = sanitize($email);
-		$user_data = user_data(user_id_from_email($email), 'first_name', 'username');
+		$user_data = user_data(user_id_from_email($email), 'user_id' ,'first_name', 'username');
 		
 		if ($mode == 'username') {
 			send_email($email, 'Your Username', "Hello " . $user_data['first_name'] . ", \n\nYour username is:". $user_data['username'] ." \n\n-Bob's Burgers, Pasta, and Pizza");
 		}
 		else if ($mode == 'password') {
-			//
+			$generated_password = substr(md5(rand(999, 999999)), 0, 8);
+			change_password($user_data['user_id'], $generated_password);
+			send_email($email, 'Your password recovery', "Hello " . $user_data['first_name'] . ", \n\nYour new password is:\n\n". $generated_password ." \n\n-Bob's Burgers, Pasta, and Pizza");
+
 		}
 	}
 	
@@ -17,12 +28,6 @@
 	function user_id_from_email($email) {
 		$email = sanitize($email);
 		return mysqli_fetch_array(mysqli_query(connection(), "select User_Id from users where email = '$email'"));
-	}
-	
-	// Returns a connection to the database.
-	function connection() {
-		$con = mysqli_connect('localhost', 'root', '','users') or die('error');
-		return $con;
 	}
 	
 	// Activates the users account and returns true if a user's account is activated. 
