@@ -3,7 +3,7 @@
 	
 	// Returns a connection to the database.
 	function connection() {
-		$con = mysqli_connect('localhost', 'root', 'root','users') or die('error');
+		$con = mysqli_connect('localhost', 'root', 'root','BobsBurgers') or die('error');
 		return $con;
 	}
 	
@@ -19,6 +19,7 @@
 		else if ($mode == 'password') {
 			$generated_password = substr(md5(rand(999, 999999)), 0, 8);
 			change_password($user_data['user_id'], $generated_password);
+			update_user($user_data['user_id'], array('password_recover' => '1'));
 			send_email($email, 'Your password recovery', "Hello " . $user_data['first_name'] . ", \n\nYour new password is:\n\n". $generated_password ." \n\n-Bob's Burgers, Pasta, and Pizza");
 
 		}
@@ -48,7 +49,7 @@
 	function change_password($user_id, $password) {
 		$user_id = (int)$user_id;
 		$password = md5($password);
-		mysqli_query(connection(), "update users set password = '$password' where user_id = $user_id");
+		mysqli_query(connection(), "update users set password = '$password', password_recover = 0 where user_id = $user_id");
 	}
 	
 	// Changes the user's password in the database.
@@ -152,5 +153,15 @@
 		else {
 			return false;
 		}
+	}
+	
+	function update_user($user_id, $update_data) {
+		$update = array();
+		array_walk($update_data, 'array_sanitize');
+		foreach ($update_data as $fields=>$data) {
+			$update[] = '`' . $fields . '` = \'' . $data . '\'';
+		}
+		
+		mysqli_query(connection(), "update users set " . implode(', ', $update). " where User_id = $user_id"); 
 	}
 ?>

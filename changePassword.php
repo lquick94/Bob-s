@@ -34,7 +34,14 @@
 			echo 'You\'re password has been changed successfully!';
 		}
 		else {
-		
+			
+			if(isset($_GET['force']) && empty($_GET['force'])) {
+				?>
+					<p>You must change your password.</p>
+				
+				<?php
+			}
+			
 			if(empty($_POST) == false && empty($errors) == true) {
 				change_password($user_data['User_id'], $_POST['password']);
 				header('Location: changepassword.php?success');

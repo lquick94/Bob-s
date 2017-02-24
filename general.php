@@ -34,4 +34,14 @@
 	function output_errors($errors){
 		return'<ul><li>'. implode('</li><li>', $errors) . '</li></ul>';
 	}
+	
+	function admin_loggedin() {
+		global $user_data;
+		if ($user_data['admin'] == 1){
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 ?>

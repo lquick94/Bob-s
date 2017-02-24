@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 03, 2017 at 02:20 PM
+-- Generation Time: Feb 23, 2017 at 07:28 PM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `users`
+-- Database: `bobsburgers`
 --
 
 -- --------------------------------------------------------
@@ -26,7 +26,6 @@ SET time_zone = "+00:00";
 -- Table structure for table `users`
 --
 
-DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `User_Id` int(11) NOT NULL,
   `username` varchar(32) NOT NULL,
@@ -44,7 +43,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`User_Id`, `username`, `password`, `first_name`, `last_name`, `email`, `email_code`, `admin`, `active`) VALUES
-(1, 'Leslie', '0dfb559b87b048ce4ab19797cf43aaa5', 'Leslie', 'victor', 'lesliequick94@gmail.com', '', 1, 1);
+(1, 'Leslie', 'd6da6b8333e440bd3757fc95bb34b52c', 'Leslie', 'victor', 'lesliequick94@gmail.com', '', 1, 1),
+(11, 'lquick', 'd6da6b8333e440bd3757fc95bb34b52c', 'leslie', 'quick', 'lesliequick@gmail.com', '9a61f524573f282da65b61a72ce764ff', 1, 1);
 
 --
 -- Indexes for dumped tables
@@ -66,7 +66,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `User_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `User_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
