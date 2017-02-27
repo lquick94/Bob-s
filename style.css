@@ -93,12 +93,28 @@ body {
 	clear: right;
 }
 
+.onlineOrder {
+	position: static;
+	font-family: Oswald;
+	font-size: 20px;
+	float: left;
+	display: inline;
+	width:400px;
+	min-height: 50px;
+	margin: 5 0 5 75px;
+	text-align: center;
+	background-color: white;
+	border-style: outset;
+	border-radius: 10px;
+	opacity: 0.85;
+}
+
 .login, .hours {
 	position: static;
 	font-family: Oswald;
 	font-size: 20px;
 	float: right;
-	display: inline;
+	display: inline-block;
 	width:400px;
 	min-height: 50px;
 	margin: 5 75 5 0px;

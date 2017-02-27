@@ -9,5 +9,5 @@
 	else {
 		include 'login_wid.php';
 	}
-	include 'user_count.php';
+	//include 'user_count.php';
 ?>
