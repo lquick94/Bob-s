@@ -1,5 +1,6 @@
 <?php include "overallHeader.php"?>
-  <body>
+<div class = "contact">
+<h2> Find Us </h2>
     <input id="origin-input" class="controls" type="text"
         placeholder="Enter an origin location">
 
@@ -20,10 +21,6 @@
     <div id="map"></div>
 
     <script>
-      // This example requires the Places library. Include the libraries=places
-      // parameter when you first load the API. For example:
-      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
-
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
           mapTypeControl: false,
@@ -118,4 +115,5 @@
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDA17oWhW49EPnwgkv742ZwqQfMzuAGh_w&libraries=places&callback=initMap"
         async defer></script>
-  </body>
+
+</div>
