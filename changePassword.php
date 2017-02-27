@@ -11,7 +11,7 @@
 			}
 		}
 		
-		if (md5($_POST['currentPassword']) == $user_data['password']) {
+		if (password_verify($_POST['currentPassword'], $user_data['password'])) {
 			if (trim($_POST['password']) != trim($_POST['passwordAgain'])){
 				$errors[] = 'YOUR NEW PASSWORDS DO NOT MATCH';
 			}

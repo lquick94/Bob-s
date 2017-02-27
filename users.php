@@ -17,7 +17,8 @@
 			send_email($email, 'Your Username', "Hello " . $user_data['first_name'] . ", \n\nYour username is:". $user_data['username'] ." \n\n-Bob's Burgers, Pasta, and Pizza");
 		}
 		else if ($mode == 'password') {
-			$generated_password = substr(md5(rand(999, 999999)), 0, 8);
+			$generated_password = password_hash(rand(999, 999999), PASSWORD_DEFAULT, ['cost => 12']);
+			//echo $generated_password;
 			change_password($user_data['user_id'], $generated_password);
 			update_user($user_data['user_id'], array('password_recover' => '1'));
 			send_email($email, 'Your password recovery', "Hello " . $user_data['first_name'] . ", \n\nYour new password is:\n\n". $generated_password ." \n\n-Bob's Burgers, Pasta, and Pizza");
@@ -48,7 +49,7 @@
 	// Changes the user's password in the database.
 	function change_password($user_id, $password) {
 		$user_id = (int)$user_id;
-		$password = md5($password);
+		$password = password_hash($password, PASSWORD_DEFAULT, ['cost' => 12]);
 		mysqli_query(connection(), "update users set password = '$password', password_recover = 0 where user_id = $user_id");
 	}
 	
@@ -61,7 +62,7 @@
 	// Registers the user by inputting the user's information into the database.
 	function register_user($register_data) {
 		array_walk($register_data, 'array_sanitize');
-		$register_data['password'] = md5($register_data['password']);
+		$register_data['password'] = password_hash($register_data['password'], PASSWORD_DEFAULT, ['cost => 12']);
 		$fields = '`'. implode('`, `', array_keys($register_data)).'`';
 		$data = '\'' . implode('\', \'', $register_data) . '\'';
 		mysqli_query(connection(), "insert into users ($fields) values ($data)");
@@ -125,12 +126,11 @@
 	// Returns 0 if password and username match with entered password and username from a user trying to login.
 	function login ($username, $password) {
 		$user_id = user_id_from_username($username);
-		$username = sanitize($username);
-		$password = md5($password);		
-		$sql= "select password from users where password = '$password' and username = '$username' limit 1";
+		$username = sanitize($username);		
+		$sql= "select password from users where username = '$username' and User_id = $user_id[0] limit 1";
 		$result = mysqli_query(connection(), $sql);
 		$row = mysqli_fetch_array($result);
-		if ($row[0] == $password) {
+		if (password_verify($password, $row[0])) {
 			return 1;
 		}
 		return 0;	
