@@ -1,11 +1,8 @@
-<?php include "overallheader.php"?>
+<?php include "overallHeader.php"?>
 <div class = "contact">
 <h2> Find Us </h2>
     <input id="origin-input" class="controls" type="text"
         placeholder="Enter an origin location">
-
-    <input id="destination-input" class="controls" type="text"
-        placeholder="Enter a destination location">
 
     <div id="mode-selector" class="controls">
       <input type="radio" name="type" id="changemode-walking" checked="checked">
@@ -21,18 +18,44 @@
     <div id="map"></div>
 
     <script>
-      // This example requires the Places library. Include the libraries=places
-      // parameter when you first load the API. For example:
-      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
-
       function initMap() {
+				var directionsDisplay = new google.maps.DirectionsRenderer;
+        var directionsService = new google.maps.DirectionsService;
         var map = new google.maps.Map(document.getElementById('map'), {
           mapTypeControl: false,
           center: {lat: 35.710098, lng: -89.086667},
           zoom: 18
         });
+				directionsDisplay.setMap(map);
+        directionsDisplay.setPanel(document.getElementById('right-panel'));
 
+				var marker = new google.maps.Marker({
+					position: {lat: 35.710098, lng: -89.086667},
+					map: map,
+					title: 'Bob\'s Burgers Pasta & Pizza'
+				});
+				
+				var onChangeHandler = function() {
+          calculateAndDisplayRoute(directionsService, directionsDisplay);
+        };
+				
         new AutocompleteDirectionsHandler(map);
+      }
+
+			function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+        var start = document.getElementById('orgin-input').value;
+        var end = {lat: 35.710098, lng: -89.086667};
+        directionsService.route({
+          origin: start,
+          destination: end,
+          travelMode: 'DRIVING'
+        }, function(response, status) {
+          if (status === 'OK') {
+            directionsDisplay.setDirections(response);
+          } else {
+            window.alert('Directions request failed due to ' + status);
+          }
+        });
       }
 
        /**
@@ -41,7 +64,7 @@
       function AutocompleteDirectionsHandler(map) {
         this.map = map;
         this.originPlaceId = null;
-        this.destinationPlaceId = null;
+        this.destinationPlaceId = {lat: 35.710098, lng: -89.086667};
         this.travelMode = 'DRIVING';
         var originInput = document.getElementById('origin-input');
         var destinationInput = document.getElementById('destination-input');
@@ -119,4 +142,5 @@
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDA17oWhW49EPnwgkv742ZwqQfMzuAGh_w&libraries=places&callback=initMap"
         async defer></script>
+
 </div>
