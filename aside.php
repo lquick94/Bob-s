@@ -10,7 +10,7 @@
 	else {
 		include 'login_wid.php';
 	}
-			include 'slide.php';
+	///		include 'slide.php';
 
 	//include 'user_count.php';
 ?>

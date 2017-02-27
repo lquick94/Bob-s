@@ -383,7 +383,7 @@ textarea {
 
 /* Slideshow container */
 .slideshow-container {
-  width: 45%;
+  max-width: 300px;
   position: relative;
   margin: auto;
 }
