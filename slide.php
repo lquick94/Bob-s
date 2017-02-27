@@ -3,18 +3,18 @@
 <div class="slideshow-container">
 
 <div class="mySlides fade">
-  <img src="ding.jpg" style="width:100%">
-  <div class="text">Caption Text</div>
+  <img src="Images/pasta.jpeg" style="width:100%">
+  <div class="text"></div>
 </div>
 
 <div class="mySlides fade">
-  <img src="ding2.jpg" style="width:100%">
-  <div class="text">Caption Two</div>
+  <img src="Images/pizza.jpg" style="width:100%">
+  <div class="text"></div>
 </div>
 
 <div class="mySlides fade">
-  <img src="Junhua-Ding.jpg" style="width:100%">
-  <div class="text">Caption Three</div>
+  <img src="Images/burger.jpg" style="width:100%">
+  <div class="text"></div>
 </div>
 
 </div>
