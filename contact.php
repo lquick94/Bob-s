@@ -42,10 +42,10 @@ if (empty($_POST) == false) {
 
 	<div class = 'form'>
 		<form action="" method="post">
-			<input type="text" name = "first_name" placeholder="First Name" /><br>
-			<input type="text" name = "email" placeholder="E-mail Address"/><br>
-			<input type="text" name = "subject" placeholder="Subject"/>
-			<textarea name="message" placeholder = "Enter text"></textarea>
+			<input type="text" name = "first_name" placeholder="First Name" />
+			<input type="text" name = "email" placeholder="E-mail Address"/>
+			<input type="text" name = "subject" placeholder="Subject"/><br><br>
+			<textarea name="message" placeholder = "Please share any comments, questions, or feedback with us!"></textarea>
 			<input type = "submit" value = "Send"/>
 		</form>
 	</div>
