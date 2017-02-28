@@ -445,3 +445,21 @@ textarea {
 @media only screen and (max-width: 300px) {
   .text {font-size: 11px}
 }
+
+#menuView {
+    margin: 250px auto 0px;
+    background-color: white;
+    height: 1200px;
+}
+
+#menuImageContainer {
+    float: left;
+    height: 1200px;
+    width: 700px;
+}
+
+#menuTextContainer {
+    float: right;
+    height: 1200px;
+    width: 1144px;
+}
