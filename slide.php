@@ -3,17 +3,17 @@
 <div class="slideshow-container">
 
 <div class="mySlides fade">
-  <img src="Images/pasta.jpeg" style="width:100%">
+  <img src="Images\pasta.jpeg" style="width:100%">
   <div class="text"></div>
 </div>
 
 <div class="mySlides fade">
-  <img src="Images/pizza.jpg" style="width:100%">
+  <img src="Images\pizza.jpg" style="width:100%">
   <div class="text"></div>
 </div>
 
 <div class="mySlides fade">
-  <img src="Images/burger.jpg" style="width:100%">
+  <img src="Images\burger.jpg" style="width:100%">
   <div class="text"></div>
 </div>
 

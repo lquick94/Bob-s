@@ -93,28 +93,12 @@ body {
 	clear: right;
 }
 
-.onlineOrder {
-	position: static;
-	font-family: Oswald;
-	font-size: 20px;
-	float: left;
-	display: inline;
-	width:400px;
-	min-height: 50px;
-	margin: 5 0 5 75px;
-	text-align: center;
-	background-color: white;
-	border-style: outset;
-	border-radius: 10px;
-	opacity: 0.85;
-}
-
 .login, .hours {
 	position: static;
 	font-family: Oswald;
 	font-size: 20px;
 	float: right;
-	display: inline-block;
+	display: inline;
 	width:400px;
 	min-height: 50px;
 	margin: 5 75 5 0px;
@@ -327,8 +311,8 @@ textarea {
 }
 
 #map {
-	height: 700px;
-	width: 85%;
+	height: 400px;
+	width: 80%;
 	margin: auto;
  }
 
@@ -338,131 +322,52 @@ textarea {
   min-zoom: 0.5;
   max-zoom: 0.9;
 }
-   
-.controls {
-	margin-top: 10px;
-	border: 1px solid transparent;
-	border-radius: 2px 0 0 2px;
-	box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	height: 32px;
-	outline: none;
-	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-}
+      #map {
+        height: 100%;
+      }
+			  /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+   .controls {
+        margin-top: 10px;
+        border: 1px solid transparent;
+        border-radius: 2px 0 0 2px;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        height: 32px;
+        outline: none;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      }
 
-#origin-input, #destination-input {
-	background-color: #fff;
-	font-family: Roboto;
-	font-size: 15px;
-	font-weight: 300;
-	margin-left: 12px;
-	padding: 0 11px 0 13px;
-	text-overflow: ellipsis;
-	width: 200px;
-}
+      #origin-input,
+      #destination-input {
+        background-color: #fff;
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: 300;
+        margin-left: 12px;
+        padding: 0 11px 0 13px;
+        text-overflow: ellipsis;
+        width: 200px;
+      }
 
-#origin-input:focus, #destination-input:focus {
-	border-color: #4d90fe;
-}
+      #origin-input:focus,
+      #destination-input:focus {
+        border-color: #4d90fe;
+      }
 
-#mode-selector {
-	color: #fff;
-	background-color: #4d90fe;
-	margin-left: 12px;
-	padding: 5px 11px 0px 11px;
-}
+      #mode-selector {
+        color: #fff;
+        background-color: #4d90fe;
+        margin-left: 12px;
+        padding: 5px 11px 0px 11px;
+      }
 
-#mode-selector label {
-	font-family: Roboto;
-	font-size: 13px;
-	font-weight: 300;
-}
-
-* {box-sizing:border-box}
-.mySlides {display:none}
-
-/* Slideshow container */
-.slideshow-container {
-  max-width: 800px;
-  position: relative;
-  margin-left: auto;
-	margin-right: auto;
-	margin-top: 300px;
-	background: black;
-}
-
-/* Caption text */
-.text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
-}
-
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
-
-/* The dots/bullets/indicators */
-.dot {
-  height: 13px;
-  width: 13px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
-
-.active {
-  background-color: #717171;
-}
-
-/* Fading animation */
-.fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-
-@-webkit-keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
-
-@keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
-
-/* On smaller screens, decrease text size */
-@media only screen and (max-width: 300px) {
-  .text {font-size: 11px}
-}
-
-#menuView {
-    margin: 250px auto 0px;
-    background-color: white;
-    height: 1200px;
-}
-
-#menuImageContainer {
-    float: left;
-    height: 1200px;
-    width: 700px;
-}
-
-#menuTextContainer {
-    float: right;
-    height: 1200px;
-    width: 1144px;
-}
+      #mode-selector label {
+        font-family: Roboto;
+        font-size: 13px;
+        font-weight: 300;
+      }
