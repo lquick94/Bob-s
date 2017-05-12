@@ -8,7 +8,7 @@
 	?>
 	<div class = "row">
 	<?php
-	include 'aside.php';
+	//include 'aside.php';
 ?>
 </div>
 </body>

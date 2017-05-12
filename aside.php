@@ -1,6 +1,4 @@
 <?php
-	include 'hours.php';
-	include 'orderOnline.php';
 
 	if (logged_in() === true) {
 		

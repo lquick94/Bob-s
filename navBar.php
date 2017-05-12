@@ -1,11 +1,47 @@
-<div id = menu>
-  <div id="nav">
-    <ul>
-      <li><a href='index.php'><i class='fa fa-home'></i><span>Home</span></a></li>
-      <li><a href='menu.php'><i class='fa fa-cutlery'></i><span>Menu</span></a></li>
-      <li><a href='#'><i class='fa fa-user'></i><span>About</span></a></li>
-      <li><a href='contact.php'><i class='fa fa-book'></i><span>Contact</span></a></li>
-      <li><a href='locate.php'><i class='fa fa-map'></i><span>Locate</span></a></li>
-    </ul>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+
+<nav>
+  <div class="row">
+    <div class="quarter">
+      <a href="index.php">
+        <img src="Images/logo.png">
+      </a>
+    </div>
+
+    <div class="rest">
+      <i class="fa fa-bars"></i>
+      <div class="text-menu">
+        <a href="index.php">Home</a>
+        <a href="menu.php">Menu</a>
+				<a href="contact.php">Contact Us</a>
+				<a href="locate.php">Locate Us</a>
+       	<?php 
+				if (logged_in() === true) { ?>
+					<a href='account.php'>Account</a>
+				<?php }
+				else { ?>
+					<a href='login.php'>Sign In/Sign Up</a>
+				<?php } ?>
+				
+				<a href = "cart.php">Cart<i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+      </div>
+    </div>
   </div>
-</div>
+	<script>
+    $(document).ready(function() {
+    
+    console.log('Document ready');
+
+    $('.fa-bars').click(function() {
+        $('.text-menu').toggleClass('menu-appear');
+    });
+
+    $('nav .text-menu a').click(function() {
+        $('.text-menu').toggleClass('menu-appear');
+    });
+    
+});
+  </script>
+</nav>

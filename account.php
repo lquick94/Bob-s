@@ -1,3 +1,7 @@
+<?php
+	include "init.php";
+	include "overallHeader.php"
+?>
 <div class = "login">
 	<h2>Hello, <?php echo $user_data['first_name'];?>!</h2>
 	<ul>
@@ -13,6 +17,12 @@
 		<li>
 			<a href = 'changeEmail.php'>Cart</a>
 		</li>
+		<?php 
+			if (is_admin($user_data['User_id'])) { ?>
+				<li>
+					<a href = 'accountHome.php'>Account Page</a>
+				</li>
+			<?php } ?>
 		
 	</ul>
 	<div id = "logout">

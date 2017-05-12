@@ -1,4 +1,7 @@
-<?php include "overallheader.php"?>
+<?php 
+	include "init.php";
+	include "overallheader.php";
+?>
 <div class = "contact">
 <h2> Find Us </h2>
     <input id="origin-input" class="controls" type="text"

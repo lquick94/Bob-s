@@ -2,7 +2,6 @@
 	include 'init.php';
 	include 'overallHeader.php';
 ?>
-<div class = "contact">
 
 <?php 
 if (empty($_POST) == false) {
@@ -16,8 +15,6 @@ if (empty($_POST) == false) {
 	}	
 ?>
 
-
-	<h2>Contact Us</h2>
 <?php
 	if (isset($_GET['success']) && empty ($_GET['success'])) {
 		echo 'Your message has been sent! Thanks you for sharing your feedback!';
@@ -39,15 +36,40 @@ if (empty($_POST) == false) {
 			 echo output_errors($errors);
 		}?>
 		</div>
+<head>
+  <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+</head>
 
-	<div class = 'form'>
-		<form action="" method="post">
-			<input type="text" name = "first_name" placeholder="First Name" />
-			<input type="text" name = "email" placeholder="E-mail Address"/>
-			<input type="text" name = "subject" placeholder="Subject"/><br><br>
-			<textarea name="message" placeholder = "Please share any comments, questions, or feedback with us!"></textarea>
-			<input type = "submit" value = "Send"/>
-		</form>
-	</div>
-	<?php } ?>
-</div>
+<body>
+  <div class="form">
+        <div id="login">   
+          <h1 class = "loginHeader">Contact Us!</h1>
+
+          <form method="post">
+          
+            <div class="field-wrap">
+            <input placeholder = "E-mail" name = "email" type="email"required autocomplete="off"/>
+          </div>
+          
+          <div class="field-wrap">
+            <input placeholder = "Subject" name = "subject" type="text"required autocomplete="off"/>
+          </div>
+          
+          <div class="field-wrap">
+            <input placeholder = "Please share any comments, concerns, questions, or feedback with us!" name = "message" type="textarea"required autocomplete="off"/>
+          </div>
+          <button class="button button-block"/>SEND</button>
+          
+          </form>
+<?php } ?>
+        </div>
+      
+      
+</div> <!-- /form -->
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+    <script src="index.js"></script>
+
+</body>
+

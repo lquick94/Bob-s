@@ -26,6 +26,16 @@
 		}
 	}
 	
+	function is_admin($user_id) {
+		$query = mysqli_fetch_array(mysqli_query(connection(), "SELECT admin from users where User_id = $user_id"));
+		if ($query[0] == 0) {
+			return false;
+		}
+		else {
+			return true;
+		}
+	}
+	
 	// Return the user_id from a given email.
 	function user_id_from_email($email) {
 		$email = sanitize($email);
@@ -94,9 +104,9 @@
 	}
 	
 	// Returns false if a user does not exist in the database, and true if a user exists in the database.
-	function user_exists ($username) {
-		$username = sanitize($username);
-		$query = mysqli_fetch_array(mysqli_query(connection(), "SELECT count('User_Id') from users where username = '$username'"));
+	function user_exists ($email) {
+		$email = sanitize($email);
+		$query = mysqli_fetch_array(mysqli_query(connection(), "SELECT count('User_Id') from users where email = '$email'"));
 		if ($query[0] == 0) {
 			return false;
 		}
@@ -106,9 +116,9 @@
 	}
 	
 	//Return true if a user's account is already activated, and false if not.
-	function user_active ($username) {
-		$username = sanitize($username);
-		$query = mysqli_fetch_array(mysqli_query(connection(), "SELECT count('User_Id') from users where username = '$username' and active = 1"));
+	function user_active ($email) {
+		$email = sanitize($email);
+		$query = mysqli_fetch_array(mysqli_query(connection(), "SELECT count('User_Id') from users where email = '$email' and active = 1"));
 		if ($query[0] == 1) {
 			return true;
 		}
@@ -124,10 +134,10 @@
 	}
 	
 	// Returns 0 if password and username match with entered password and username from a user trying to login.
-	function login ($username, $password) {
-		$user_id = user_id_from_username($username);
-		$username = sanitize($username);		
-		$sql= "select password from users where username = '$username' and User_id = $user_id[0] limit 1";
+	function login ($email, $password) {
+		$user_id = user_id_from_email($email);
+		$email = sanitize($email);		
+		$sql= "select password from users where email = '$email' and User_id = $user_id[0] limit 1";
 		$result = mysqli_query(connection(), $sql);
 		$row = mysqli_fetch_array($result);
 		if (password_verify($password, $row[0])) {
