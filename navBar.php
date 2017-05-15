@@ -25,7 +25,6 @@
 					<a href='login.php'>Sign In/Sign Up</a>
 				<?php } ?>
 				
-				<a href = "cart.php">Cart<i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
       </div>
     </div>
   </div>

@@ -57,7 +57,7 @@
 			}
 
 			if (isset($_GET['success']) && empty ($_GET['success'])) {
-				echo 'You\'ve been registered successfully! Please check your email to activate your account.';
+				?><div class = form> <h1 class = "loginHeader"> <?php echo 'You\'ve been registered successfully! Please check your email to activate your account.'; ?> </h1> </div><?php
 			}
 	
 			else {

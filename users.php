@@ -3,7 +3,7 @@
 	
 	// Returns a connection to the database.
 	function connection() {
-		$con = mysqli_connect('localhost', 'root', 'root','BobsBurgers') or die('error');
+		$con = mysqli_connect('localhost', 'root', 'root','bobsburgers') or die('error');
 		return $con;
 	}
 	
@@ -11,10 +11,10 @@
 	function recover($mode, $email) {
 		$mode = sanitize($mode);
 		$email = sanitize($email);
-		$user_data = user_data(user_id_from_email($email), 'user_id' ,'first_name', 'username');
+		$user_data = user_data(user_id_from_email($email), 'user_id' ,'first_name', 'email');
 		
-		if ($mode == 'username') {
-			send_email($email, 'Your Username', "Hello " . $user_data['first_name'] . ", \n\nYour username is:". $user_data['username'] ." \n\n-Bob's Burgers, Pasta, and Pizza");
+		if ($mode == 'email') {
+			send_email($email, 'Your Username', "Hello " . $user_data['first_name'] . ", \n\nYour email is:". $user_data['email'] ." \n\n-Bob's Burgers, Pasta, and Pizza");
 		}
 		else if ($mode == 'password') {
 			$generated_password = password_hash(rand(999, 999999), PASSWORD_DEFAULT, ['cost => 12']);
@@ -116,7 +116,7 @@
 	}
 	
 	//Return true if a user's account is already activated, and false if not.
-	function user_active ($email) {
+	function user_active($email) {
 		$email = sanitize($email);
 		$query = mysqli_fetch_array(mysqli_query(connection(), "SELECT count('User_Id') from users where email = '$email' and active = 1"));
 		if ($query[0] == 1) {
@@ -127,13 +127,8 @@
 		}
 	}
 	
-	// Return the user_id from a given username.
-	function user_id_from_username($username) {
-		$username = sanitize($username);
-		return mysqli_fetch_array(mysqli_query(connection(), "select User_Id from users where username = '$username'"));
-	}
 	
-	// Returns 0 if password and username match with entered password and username from a user trying to login.
+	// Returns 0 if password and email match with entered password and email from a user trying to login.
 	function login ($email, $password) {
 		$user_id = user_id_from_email($email);
 		$email = sanitize($email);		
@@ -147,9 +142,9 @@
 	}
 	
 	// Returns the users first name
-	function firstName ($username) {
-		$firstName = sanitize($username);
-		$result = mysqli_query(connection(), "select first_name from users where username = '$username'");
+	function firstName ($email) {
+		$firstName = sanitize($email);
+		$result = mysqli_query(connection(), "select first_name from users where email = '$email'");
 		return mysqli_fetch_array($result);
 	}
 	

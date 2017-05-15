@@ -2,26 +2,26 @@
 	include "init.php";
 	include "overallHeader.php"
 ?>
-<div class = "login">
-	<h2>Hello, <?php echo $user_data['first_name'];?>!</h2>
+<div class = "form">
+	<h1 class = "loginHeader">Hello, <?php echo $user_data['first_name'];?>!</h1>
 	<ul>
-		<li>
-			<a href = 'changepassword.php'>Change Password</a>
-		</li>
-		<li>
-			<a href = 'changeEmail.php'>Change Email</a>
-		</li>
-		<li>
+		<li class = "forgot">
+			<p class = "forgot"><a href = 'changepassword.php'>Change Password</a></p>
+		</li><br>
+		<li class = "forgot">
+			<p class = "forgot"><a href = 'changeEmail.php'>Change Email</a></p>
+		</li><br>
+		<li class = "forgot">
 			<a href = 'changeEmail.php'>Order History</a>
-		</li>
-		<li>
+		</li><br>
+		<li class = "forgot">
 			<a href = 'changeEmail.php'>Cart</a>
-		</li>
+		</li><br>
 		<?php 
 			if (is_admin($user_data['User_id'])) { ?>
-				<li>
-					<a href = 'accountHome.php'>Account Page</a>
-				</li>
+				<li class = "forgot">
+					<a href = 'admin/index.php'>Admin Page</a>
+				</li><br>
 			<?php } ?>
 		
 	</ul>
