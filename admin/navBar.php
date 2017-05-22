@@ -1,3 +1,14 @@
+<?php
+	include '../users.php';
+	session_start();
+	$session_user_id = $_SESSION['user_id'];
+	$user_data = user_data($session_user_id, 'User_id', 'password', 'first_name', 'last_name', 'email','admin','password_recover');
+	
+	if(!is_admin($user_data['User_id'])) {
+		header("Location: ../index.php");
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +17,7 @@
 	<title>Admin</title>
   <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
 	<link rel="stylesheet" href="css/style.css">
-	<link href="https://fonts.googleapis.com/css?family=Barrio|Montserrat+Subrayada|Sacramento" rel="stylesheet">
+	//<link href="https://fonts.googleapis.com/css?family=Barrio|Montserrat+Subrayada|Sacramento" rel="stylesheet">
 	<!-- Bootstrap CSS File  -->
 	<link rel="stylesheet" type="text/css" href="bootstrap-3.3.5-dist/css/bootstrap.css"/>
 </head>
